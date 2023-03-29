@@ -6,9 +6,8 @@ BOOL WINAPI consoleHandler(DWORD signal) {
 	switch (signal)
 	{
 	case CTRL_C_EVENT:
-		printf("Ctrl-C handled\n");
+		printf("Exiting\n");
 		exit(0);
-		return TRUE;
 	default:
 		return FALSE;
 	}
@@ -16,8 +15,7 @@ BOOL WINAPI consoleHandler(DWORD signal) {
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	BOOL WINAPI bSwitch = TRUE;
-	BOOL WINAPI bRunning = TRUE;
+	BOOL WINAPI bSwitch = TRUE;	
 
 	if (!SetConsoleCtrlHandler(consoleHandler, TRUE)) {
 		printf("\nERROR: Could not set control handler"); 
